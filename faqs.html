@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Preguntas Frecuentes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .faq-container {
+      max-width: 700px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #ddd;
+    }
+
+    .faq-question {
+      cursor: pointer;
+      padding: 15px;
+      font-weight: bold;
+      position: relative;
+      background-color: #e6f4ea; /* Verde claro */
+      transition: background-color 0.3s;
+    }
+
+    .faq-item.active .faq-question {
+      background-color: #fff9c4; /* Amarillo claro */
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 15px;
+      background-color: #f9f9f9;
+      color: #333;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 300px;
+      padding: 15px;
+    }
+
+    .faq-question::after {
+      content: "+";
+      position: absolute;
+      right: 20px;
+      font-size: 20px;
+    }
+
+    .faq-item.active .faq-question::after {
+      content: "-";
+    }
+  </style>
+</head>
+<body>
+
+  <div class="faq-container">
+    <div class="faq-item">
+      <div class="faq-question">¿Cómo puedo participar en la promoción?</div>
+      <div class="faq-answer">
+        Puedes participar comprando uno de los 100 boletos disponibles por solo $100.00.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">¿Cuál es el premio principal?</div>
+      <div class="faq-answer">
+        El premio principal es de $50,000.00 como parte de nuestra promoción por el Día del Padre.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">¿Cuándo se anunciará al ganador?</div>
+      <div class="faq-answer">
+        El ganador se anunciará el día del sorteo, que será publicado en nuestras redes sociales oficiales.
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+      item.querySelector('.faq-question').addEventListener('click', () => {
+        item.classList.toggle('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
+
