@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/img/Logo1.png">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/stylespb.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <title>LosamigosdelaR</title>
+</head>
+<body>
+    <header class="header">
+        <div class="contenedor-header">
+        <div class="barra">
+            <a class="logo" href="index.html">
+                <img class="img-logo" src="img/Logo1.png" alt="">
+                </a>
+
+                <nav class="navegacion">
+                    <a href="nosotros.html" class="navegacion_enlace">Inicio</a>
+                    <a href="cursos.html" class="navegacion_enlace">Cuentas</a>
+                    <a href="contacto.html" class="navegacion_enlace">Comprar boletos</a>
+
+                </nav>
+                
+        </div>
+       
+
+    </div>
+
+    <div class="header_texto">
+            <h2 class="no-margin">RIFAS LOS AMIGOS DE LA R</h2>
+            <p class="no-margin">Participa y gana con los mejores</p>
+        </div>
+
+
+    </header>
+<!-- Aqui comienza el div del contador para la cuenta regresiva!-->
+    <div class="contador-body">
+        <h3>¡PRÓXIMO SORTEO!</h3>
+    <P>Aún estas a tiempo para comprar tus boletos, para nuestro proximo sorteo</P>
+    
+    <div class="contador-container">
+      <div class="tiempo">
+        <div class="flip-card" id="dias">
+          <div class="flip-card-inner">
+            <div class="flip-face flip-front">00</div>
+            <div class="flip-face flip-back">00</div>
+          </div>
+        </div>
+        <div class="label">Días</div>
+      </div>
+      <div class="separador">:</div>
+  
+      <div class="tiempo">
+        <div class="flip-card" id="horas">
+          <div class="flip-card-inner">
+            <div class="flip-face flip-front">00</div>
+            <div class="flip-face flip-back">00</div>
+          </div>
+        </div>
+        <div class="label">Horas</div>
+      </div>
+      <div class="separador">:</div>
+  
+      <div class="tiempo">
+        <div class="flip-card" id="minutos">
+          <div class="flip-card-inner">
+            <div class="flip-face flip-front">00</div>
+            <div class="flip-face flip-back">00</div>
+          </div>
+        </div>
+        <div class="label">Minutos</div>
+      </div>
+      <div class="separador">:</div>
+  
+      <div class="tiempo">
+        <div class="flip-card" id="segundos">
+          <div class="flip-card-inner">
+            <div class="flip-face flip-front">00</div>
+            <div class="flip-face flip-back">00</div>
+          </div>
+        </div>
+        <div class="label">Segundos</div>
+
+        
+      </div>
+      
+    </div>
+
+     <br>
+    <br>
+
+   
+
+
+    <a href="entrada.html" class="boton boton--primario">Comprar Boletos</a>
+    </div>
+
+     <!--Aqui termina el div del contador para la cuenta regresiva-->
+    
+   <!--Inicia el Script que hace que funcione la cuenta regresiva-->
+    <script>
+        const fechaBoda = new Date("2025-06-09T00:00:00");
+    
+        function actualizarFlipCard(id, nuevoValor) {
+          const card = document.getElementById(id);
+          const inner = card.querySelector('.flip-card-inner');
+          const front = card.querySelector('.flip-front');
+          const back = card.querySelector('.flip-back');
+    
+          if (front.textContent !== nuevoValor) {
+            back.textContent = nuevoValor;
+            card.classList.add('flipping');
+    
+            setTimeout(() => {
+              front.textContent = nuevoValor;
+              card.classList.remove('flipping');
+            }, 600);
+          }
+        }
+    
+        function actualizarContador() {
+          const ahora = new Date();
+          const diferencia = fechaBoda - ahora;
+    
+          if (diferencia <= 0) {
+            // Aquí podrías mostrar un mensaje especial
+            return;
+          }
+    
+          const segundosTotales = Math.floor(diferencia / 1000);
+          const dias = Math.floor(segundosTotales / (60 * 60 * 24));
+          const horas = Math.floor((segundosTotales % (60 * 60 * 24)) / (60 * 60));
+          const minutos = Math.floor((segundosTotales % (60 * 60)) / 60);
+          const segundos = segundosTotales % 60;
+    
+          actualizarFlipCard("dias", dias.toString().padStart(2, '0'));
+          actualizarFlipCard("horas", horas.toString().padStart(2, '0'));
+          actualizarFlipCard("minutos", minutos.toString().padStart(2, '0'));
+          actualizarFlipCard("segundos", segundos.toString().padStart(2, '0'));
+        }
+    
+        actualizarContador();
+        setInterval(actualizarContador, 1000);
+      </script>
+
+       <!--Termina el script que hace que funcione la cuenta regresiva-->
+
+       <!--Aqui comienza el contenedor del contenido de ¿Quienes somos?-->
+
+     <div class="contenedor-qs contenido-principal">
+        <main class="Blog">
+            <h3>¿QUIÉNES SOMOS?</h3>
+            <div class="entrada__contenido">
+                    <h4 class="no-margin">Sorteos los amigos de la "R"</h4>
+                    <img class="logo-qs" src="img/Logo1.png" alt="">
+                    <p>
+                      En sorteos amigos de la "R" realizamos sorteos en base a los numeros semanales de la loteria nacional donde participas con poco y ganas mucho.
+                        Los sorteos se realizan cada martes con las 5 cifras del numero ganador de la loteria nacional, asimismo se realizan en vivos dichos días para dar transparencia y dar a conocer a nuestro ganador.</p>
+                        
+
+                
+                </div>
+
+                <main class="contenedor">
+        <h3 class="centrar-texto">RIFAS VIGENTES</h3>
+
+
+        <div class="curso">
+            <div class="curso__imagen">
+                <img src="img/rifa.webp" alt="imagen del curso">
+            </div>
+
+            <div class="curso__informacion">
+                <h4 class="no-margin">¡PRIMERA EDICION GANATE 50,000 PESOS!</h4>
+                <p class="curso__label">PRECIO</p>
+              
+                </p>
+                <p class="curso__informacion">
+                  1 BOLETO POR $15 <BR>
+                  (10 OPRTUNIDADES) </BR>
+                  2 BOLETOS POR $30 <BR>
+                  (20 OPRTUNIDADES) </BR>
+                  3 BOLETOS POR $45 <BR>
+                  (30 OPORTUNIDADES)</BR>
+                    
+                </p>
+
+                
+    <a href="entrada.html" class="boton boton--primario">Comprar Boletos</a>
+    </div>
+            </div> <!--.curso-informacion-->
+        </div> <!--.curso-->
+<!--Aqui comienza el codigo del div donde se tienen las preguntas frecuentes-->
+
+<h3 class="centrar-texto">PREGUNTAS FRECUENTES</h3>
+
+<div class="faq-container">
+  <div class="faq-item">
+    <div class="faq-question">¿Cómo puedo participar en la promoción?</div>
+    <div class="faq-answer">
+      Puedes participar comprando uno de los 100 boletos disponibles por solo $100.00.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">¿Cuál es el premio principal?</div>
+    <div class="faq-answer">
+      El premio principal es de $50,000.00 como parte de nuestra promoción por el Día del Padre.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">¿Cuándo se anunciará al ganador?</div>
+    <div class="faq-answer">
+      El ganador se anunciará el día del sorteo, que será publicado en nuestras redes sociales oficiales.
+    </div>
+  </div>
+</div>
+<!--Aqui comienza el script para que funcione correctamente el apartado de FAQ's-->
+<script>
+  const faqItems = document.querySelectorAll('.faq-item');
+
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    question.addEventListener('click', () => {
+      // Cerrar todas las preguntas activas
+      faqItems.forEach(i => {
+        if (i !== item) {
+          i.classList.remove('active');
+        }
+      });
+
+      // Alternar solo la pregunta actual
+      item.classList.toggle('active');
+    });
+  });
+</script>
+
+<!--Aquí comienza el footer-->
+
+<footer class="custom-footer">
+  <h2>CONTÁCTANOS</h2>
+  <div class="contact-info">
+    <img src=img/whatsapp.png alt="WhatsApp" class="icon" />
+    <span>(644) 103 5820</span>
+  </div>
+  <div class="social-icons">
+    <a href="https://facebook.com" target="_blank" class="facebook-icon">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+  </div>
+</footer>
+
+
+
+
+
+</body>
+</html>
